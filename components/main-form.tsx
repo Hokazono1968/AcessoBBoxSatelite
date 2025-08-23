@@ -98,9 +98,9 @@ export default function MainForm({
       <CardHeader className="text-center">
         <div className="flex items-center justify-center mb-4">
           <LaundryIcon className="h-12 w-12 text-indigo-600" />
-          <CardTitle className="text-2xl font-bold text-indigo-800 ml-3">Sistema de Acesso BBox Nelson D'Avila</CardTitle>
+          <CardTitle className="text-2xl font-bold text-indigo-800 ml-3">Sistema de Acesso BBox Satelite</CardTitle>
         </div>
-        <CardDescription>Preencha seus dados para gerar a senha da lavanderia.</CardDescription>
+        <CardDescription>Preencha seus dados para receber a senha da lavanderia.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -188,7 +188,7 @@ export default function MainForm({
               )}
             />
             <Button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700">
-              {form.formState.isSubmitting ? <div className="loading-spinner mx-auto" /> : "Gerar Senha"}
+              {form.formState.isSubmitting ? <div className="loading-spinner mx-auto" /> : "Obter Senha"}
             </Button>
           </form>
         </Form>

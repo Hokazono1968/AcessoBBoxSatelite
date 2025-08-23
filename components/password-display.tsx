@@ -43,7 +43,7 @@ export default function PasswordDisplay({
             </Button>
           </div>
           <p className="text-sm text-green-700">
-            <strong>Orientação:</strong> Digite a senha no controlador de acesso ao lado da porta e após o sinal sonoro
+            <strong>Orientação:</strong> Digite a senha pausadamente no controlador de acesso ao lado da porta e após o sinal sonoro
             abrir a porta.
           </p>
         </div>

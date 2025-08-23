@@ -11,7 +11,7 @@ import { Toaster } from "@/components/ui/toaster"
 export default function HomePage() {
   const [currentPage, setCurrentPage] = useState("main")
   const [laundryPassword, setLaundryPassword] = useState("123") // Default password
-  const [adminPassword, setAdminPassword] = useState("Claudio") // Default admin password
+  const [adminPassword, setAdminPassword] = useState("Edilza1*") // Default admin password
 
   useEffect(() => {
     const loadPasswords = async () => {
