@@ -52,7 +52,7 @@ export default function MainForm({
         description: "Seus dados foram salvos e a senha foi gerada.",
         variant: "default",
       })
-      setCurrentPage("password")
+      
     } catch (error) {
       console.error("Erro ao salvar dados:", error)
       toast({
