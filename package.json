@@ -45,11 +45,13 @@
     "date-fns": "4.1.0",
     "embla-carousel-react": "latest",
     "geist": "latest",
+    "imap": "^0.8.19",
     "input-otp": "latest",
     "lucide-react": "^0.454.0",
     "mailparser": "^3.6.0",
     "next": "15.2.4",
     "next-themes": "latest",
+    "nodemailer": "^7.0.9",
     "react": "^19.0.0",
     "react-day-picker": "latest",
     "react-dom": "^19.0.0",
@@ -60,8 +62,7 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "latest",
-    "zod": "3.25.67",
-    "imap": "^0.8.19"
+    "zod": "3.25.67"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
