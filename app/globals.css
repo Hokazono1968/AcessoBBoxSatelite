@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -119,23 +119,5 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-/* Custom styles from original HTML */
-.loading-spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  width: 24px; /* Adjusted for shadcn button size */
-  height: 24px; /* Adjusted for shadcn button size */
-  border-radius: 50%;
-  border-left-color: #4f46e5; /* indigo-600 */
-  animation: spin 1s linear infinite;
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
