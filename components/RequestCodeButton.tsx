@@ -5,23 +5,40 @@ import { Mail } from "lucide-react"; // ícone de e-mail
 interface RequestCodeButtonProps {
   fullName: string;
   email: string;
-  phone: string;
+  cpf: string; // substitui o campo telefone
 }
 
-const RequestCodeButton: React.FC<RequestCodeButtonProps> = ({ fullName, email, phone }) => {
+// Variável de ambiente para e-mail do administrador
+const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL || "admin@acesso24h.com";
+// Prefixo do assunto usado para identificar o pedido
+const SUBJECT_PREFIX = "REQ-CODE";
+
+const RequestCodeButton: React.FC<RequestCodeButtonProps> = ({ fullName, email, cpf }) => {
   const [showModal, setShowModal] = useState(false);
 
+  // Gera o link mailto com todos os parâmetros
+  const makeMailto = () => {
+    const cpfDigits = (cpf || "").replace(/\D/g, "");
+    const subject = `${SUBJECT_PREFIX}:${cpfDigits}`;
+    const body = [
+      `Olá,`,
+      ``,
+      `Solicito o código de acesso para a porta (lavanderia).`,
+      ``,
+      `Nome: ${fullName || ""}`,
+      `CPF: ${cpfDigits}`,
+      `E-mail: ${email}`,
+      ``,
+      `Obrigado.`,
+    ].join("\n");
+
+    const mailto = `mailto:${encodeURIComponent(adminEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return mailto;
+  };
+
   const handleClick = () => {
-    const adminEmail = "admin@acesso24h.com"; // e-mail do administrador
-    const subject = encodeURIComponent("Pedido de código de acesso");
-    const body = encodeURIComponent(
-      `Olá,\n\nMeu nome é ${fullName}.\nE-mail: ${email}\nTelefone: ${phone}\n\nGostaria de receber o código da lavanderia.\n\nObrigado!`
-    );
-
-    // Abre o cliente de e-mail do usuário
-    window.location.href = `mailto:${adminEmail}?subject=${subject}&body=${body}`;
-
-    // Exibe o modal explicativo
+    const mailto = makeMailto();
+    window.location.href = mailto;
     setShowModal(true);
   };
 
@@ -44,15 +61,15 @@ const RequestCodeButton: React.FC<RequestCodeButtonProps> = ({ fullName, email, 
             <p className="mb-4 text-center">
               Seu cliente de e-mail foi aberto com a mensagem pronta para o administrador.
             </p>
-            <ol className="list-decimal list-inside space-y-2 mb-6">
+            <ol className="list-decimal list-inside space-y-2 mb-6 text-left">
               <li>
-                Verifique que o destinatário é <strong>admin@acesso24h.com</strong>.
+                Verifique que o destinatário é <strong>{adminEmail}</strong>.
               </li>
               <li>
-                Confirme que a mensagem inclui seu nome, e-mail e telefone corretamente.
+                Confirme que a mensagem inclui seu nome, e-mail e CPF corretamente.
               </li>
               <li className="font-semibold text-green-700">
-                Clique em <strong>ENVIAR</strong> no seu e-mail para que o administrador possa responder.
+                Clique em <strong>ENVIAR</strong> no seu e-mail para que o administrador possa responder com o código.
               </li>
             </ol>
             <p className="mb-4 text-center text-gray-700">
