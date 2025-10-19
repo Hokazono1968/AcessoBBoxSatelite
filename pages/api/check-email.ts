@@ -3,7 +3,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Imap from "imap";
 import { simpleParser } from "mailparser";
 import { Redis } from "@upstash/redis";
-import fetch from "node-fetch";
 
 // Conexão com o Redis (Upstash)
 const redis = new Redis({
